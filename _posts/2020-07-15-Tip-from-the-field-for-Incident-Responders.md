@@ -9,7 +9,7 @@ Working in infosec field requires the person to be highly organized espcially wh
 
 <!-- more -->
 
-Structure template or notes to fill during the analysis is . Each indicator or abnormal activity you encounter should be written. You could create a spreadsheet to document your findings and how did you end up finding these IOCs.  
+Structured template or notes to fill during the analysis is very useful. Each indicator or abnormal activity you encounter should be written down. Spreadsheet is a good option to document incident findings (mostly IOCs) and how did you finding them.
 
 Maybe you could create the following pages:
 
