@@ -10,7 +10,6 @@ Ali Alwashali
 
 **Twitter**: [@ali_alwashali](https://twitter.com/ali_alwashali)
 
-**Email**: a.alwashli[@]gmail[dot]com
 
 **LinkedIn**: [Ali Alwashali](https://www.linkedin.com/in/alwashali/)
 
