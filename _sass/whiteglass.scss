@@ -1,7 +1,7 @@
 // Define defaults for each variable.
 $base-font-family: medium-content-serif-font, "Apple SD Gothic Neo", "Noto Sans", "Source Han Sans", "Noto Sans CJK JP", "Source Han Sans JP", "Noto Sans CJK KR", "Source Han Sans KR", NanumBarunGothic, AppleGothic, "Malgun Gothic", Dotum, sans-serif !default;
 $monospace-font-family: Monaco, Menlo, Consolas, "Courier New", DotumChe, monospace !default;
-$base-font-size:   16px !default;
+$base-font-size:   14px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -17,10 +17,10 @@ $grey-color-light: lighten($grey-color, 45%) !default;
 $grey-color-dark:  darken($grey-color, 20%) !default;
 
 // Width of the content area
-$content-width:    800px !default;
+$content-width:    900px !default;
 
 $on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-laptop:        900px !default;
 
 
 
