@@ -4,7 +4,7 @@ title: How to Remove GitHub Pages commits
 
 ---
 
-If you are using github pages to host your static blog, probably you don't need to keep commits to the blog repository. Usually, all commits are articles pushed to the repository or typo mistakes commits. I personally rather to remove them.
+If you are using github pages to host your static blog, probably you don't need to keep commits to of the articles pushed to the repository. Usually, most of the commits are articles or typo mistakes fixes. I personally would rather to remove them.
 
 <!-- more -->
 
