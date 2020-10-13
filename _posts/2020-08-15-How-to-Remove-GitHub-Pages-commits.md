@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: How to Remove GitHub Pages commits 
+title: Removing GitHub Pages commits 
 
 ---
 
