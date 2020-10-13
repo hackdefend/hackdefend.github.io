@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: Responders Notes 
+title: Keep Calm and Take Notes  
 
 ---
 
