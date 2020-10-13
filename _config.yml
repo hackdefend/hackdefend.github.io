@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Hack | Defend 
 author: Ali Alwashali
-description: DFIR | Threat Intelligence
+description: DFIR | Threat Intelligence 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://hackdefend.com" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
@@ -51,7 +51,7 @@ excerpt_separator: "<!-- more -->"
 # Outputting
 permalink: /:title/
 paginate_path: /posts/:num/
-paginate: 5
+paginate: 6
 
 # Markdown settings
 kramdown:

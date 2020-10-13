@@ -4,14 +4,14 @@ title: Responders Notes
 
 ---
 
-Working in infosec field requires the person to be highly organized espcially when responding to a cyber incident in a complex environment. The amount of data to collected for later reference is overwhelming Proper note taking is the key, and will help you later during incident briefing and reporting. 
+Working in infosec field requires the person to be highly organized espcially when responding to a cyber incident in a complex environment. The amount of data to collected is overwhelming. Proper note taking is the key, and will help you later during incident briefing and reporting.
 
 
 <!-- more -->
 
-Structured template or notes to fill during the analysis is very useful. Each indicator or abnormal activity you encounter should be written down. Spreadsheet is a good option to document incident findings (mostly IOCs) and how did you finding them.
+Structured template to fill during the analysis is very useful. For each indicator or abnormal activity you encounter should be written down. I believe  spreadsheet is a good option to document incident findings (mostly IOCs) and how did you finding them.
 
-Maybe you could create the following pages:
+Maybe you could create the following sheets:
 
 * **Assets Involved** → ID, Hostname, IP Address, Type, Network segment 
 
@@ -23,9 +23,7 @@ Maybe you could create the following pages:
 
 * **Tools** 
 
-You could have another page for rough writing like a diary for the incident itself and how it was investigated and recovered. 
+You could have another page for rough writing like a diary for the incident itself and how it was investigated and recovered.
 
 <br>
 <br>
-
-
