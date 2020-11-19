@@ -12,3 +12,9 @@ Basically, perception is built upon information we already consumed through our 
 
 
 Fresh analyst with little perception about the case sometimes help better than experience and old analyst due to the fact that, mind of old analyst resists change. Amount of data and time spent have a proportional relationship to perception. The more data you collect the more perception your brain develops.
+
+
+Reference
+
+https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/books-and-monographs/psychology-of-intelligence-analysis/art5.html
+
