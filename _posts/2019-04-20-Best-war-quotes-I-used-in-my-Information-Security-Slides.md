@@ -1,6 +1,10 @@
 ---
-layout: post
 title: Best War Quotes I Use In  InfoSec Slides
+classes: wide
+categories:
+  - General
+tags:
+  - Quotes
 ---
 
  > If you know the enemy and know yourself, you need not fear the result of a hundred battles 

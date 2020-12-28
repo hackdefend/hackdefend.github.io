@@ -1,7 +1,11 @@
 ﻿---
-layout: post
 title: Zeek IDS Tips and Tricks
-
+classes: wide
+categories:
+  - Network Forensics
+tags:
+  - Zeek
+  - Network Forensics
 ---
 
 I have been using Zeek for my personal projects for sometime, I will write some tips for using it and plan to update this list as I get into the advanced capabilities of Zeek.

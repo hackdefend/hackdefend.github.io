@@ -1,7 +1,11 @@
 ---
-layout: post
 title: How to start learning Digital Forensics
-
+classes: wide
+categories:
+  - Digital Forensics
+tags:
+  - Digital Forensics
+  - Books
 ---
 
 If you are planning to start your journey in the field of digital forensics but you don’t have good materials to start, I will suggest you some books to start reading with the assumptions that you have all the basic IT fundamentals. You can read them one after another along with your regular subjects if you are still in college.
