@@ -1,5 +1,5 @@
 ---
-title: Best War Quotes I Use In  InfoSec Slides
+title: Best War Quotes I Use In  My Infosec Slides
 classes: wide
 categories:
   - General
@@ -30,3 +30,10 @@ tags:
  > Keep your friends close, and your enemies closer. 
 
  > If you don’t know where you are going, you’ll end up some place else.
+ 
+ > Anyone can hold the helm when the sea is calm.
+     
+>The most reliable way to predict the future is to create it.
+—Abraham Lincoln
+
+
