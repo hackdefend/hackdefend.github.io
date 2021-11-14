@@ -8,35 +8,38 @@ tags:
   - SIEM
 ---
 
-The requirement was to create a tool that can stream captured packets to a remote machine. There are many tools that monitor traffic and send aggregated logs, however the goal is the packet payload inclusion. Generally, network forensics requires looking into payload network streams for deep analysis or file extraction. In addition, there are troubleshooting situations where full packet capture is needed. Wireshark will not be a solution to capture on teh remote server and manually transfer the file.
+Tool such as TCPDump captures full packet data and store to desk, it doesn't provide a way to capture and stream the packets to a remote destination. I have been in situation where I needed a quick way to capture and send traffic at the same time. There are ways to configure full packet capture nodes to capture and send the traffic to a master collector, however the goal is a host based collection for cloud servers or temporary capture for incident response or network troubleshooting. 
 
 <!-- more --> 
 
-The tool is intended be to used mainly for capturing traffic from compromised machines or for troubleshooting remote servers. There might be ways to configure Wireshark to send traffic to a remote destination, but not scalable if multiple machines needed to send the traffic at the same time.  
+Most of the existing methods approach the problem from an engineering prospective for reliable and permanent full packet capture solution. However, when it comes to a quick way to get PCAP from a remote host, it becomes a tedious task with many manual configuration to be set before receiving the first packet. 
+
+Tools that monitor traffic and send aggregated logs are not useful in cases where full packet data is required for deep analysis or file extraction. The tool is intended be to used mainly for capturing traffic from compromised machines or for troubleshooting remote servers as soon as the agent is executed.  
 
 
 ### Design 
 
-- Agent to send logs 
+- Agent to send captured packets 
 - Collector server to receive the packets from the agent
 - BPF support
 - Capture stops by condition based on number of packet or size.
 - Multiple machine capture support
-- Arkime full packet capture platform support at collector server
+- Arkime full packet capture platform support at the collector server
 
 
-Golang programming language was selected for writing the agent and collector server, because it's a compiled language and has a robust packet processing libraries. Python has also strong packet processing packages, but will be a challenge to run a python script on a remote machine. 
+The tools idea is simple, any library that provide full packet capture feature can be used to stream the packets after performing some sort of serialization. Golang programming language has a robust packet processing libraries called GoPacket, in addition it's a compiled language and that makes it perfect as a start. Python has also strong packet processing packages, but will be a challenge to run a python script on a remote machine with out going through compiling python script into exe file.
 
-Two main libraries used to achieve the goal are **GoPacket** as a packet processing library and **gRPC** for sending the serialized packets to a remote destination. 
+
+Two main libraries are used to achieve the goal, **GoPacket** as a packet processing library and **gRPC** for sending the serialized packets to a remote destination.
 
 ## Implementation 
 
-gRPC uses [Proto3 (Protocol Buffers)](https://developers.google.com/protocol-buffers/docs/proto3) language to describe the services that will be implemented server and client sides. Writing Proto3 services file will enable developers to auto-generate clients for any language supported by gRPC without writing the code. 
+gRPC uses [Proto3 (Protocol Buffers)](https://developers.google.com/protocol-buffers/docs/proto3) language to describe the services that will be implemented in the server and client. Writing Proto3 services file will enable developers to auto-generate clients for any language supported by gRPC without writing the actual code. 
 
 ![gRPC](/imgs/grpc-proto_concept.png)
 [img source](https://developer.token.io/tailrd_rest_api_doc/content/0-token_fundamentals/proto_buffers.htm)
 
-The tool is fairly simple, it has only 3 messages and on one services consisting of two functions. Details of how to write proto3 can be found in the [language guide](https://developers.google.com/protocol-buffers/docs/proto3).    
+The tool is fairly small, it has only 3 messages and one service consisting of two functions. Details of how to write proto3 can be found in the [Proto3 language guide](https://developers.google.com/protocol-buffers/docs/proto3).    
 
 ```
 syntax = "proto3";
@@ -68,16 +71,14 @@ service RemoteCaputre {
 Using above proto3 code, a client can be generated containing golang code required to send and receive data between client and server. Google Protobuf compiler generated 470 lines of code that has all code necessary to exchange messages between client and server, the code must be imported by the client and server code being written around the generated Protbuf code. Applications with few functions will have thousands of lines automatically generated with zero effort. The same can be generated for any language. 
 
 
-GoPacket can capture traffic directly from physical network interface. Interestingly almost all Golang libraries documentation contains useful examples, which helped me understanding how to use the tools more than any other language. GoPacket library has [examples folder](https://github.com/google/gopacket/tree/master/examples) in the official github repository.
-
-For more clean code snippet, check the examples folder. Remote capture tools code snippets will be used in the post rather than showing snippets that are not directly related to the post. 
+GoPacket can capture traffic directly from the physical network interface, acting like tcpdump inside the code. GoPacket library has [examples folder](https://github.com/google/gopacket/tree/master/examples) in the official github repository which shows many use cases for using GoPacket. 
 
 
 **Windows NPF interface naming**
 
-Linux has simple ifconfig command that shows the interface names such as eth0, but Windows has more difficult ways to know what is the name of the interface. In order to capture packets from windows, you need to know the name of the interface which is not what it's shown in the output of ipconfig or getmac. [Golang and Windows Network Interfaces](https://haydz.github.io/2020/07/06/Go-Windows-NIC.html) post discuss the naming in more details. 
+Linux has simple ifconfig command that shows the interface names such as eth0, eth1 ...etc, but Windows has more difficult ways to know what is the name of the interface. In order to capture packets from windows, you need to know the name of the interface which is not what it's shown in the output of ipconfig or getmac. [Golang and Windows Network Interfaces](https://haydz.github.io/2020/07/06/Go-Windows-NIC.html) post discuss the naming in more details. 
 
-Luckily there is pcap.FindAllDevs() function in GoPacket to find all the physical interfaces. Once the names are fetched, it's the best to leave the user decides what interface to capture by mapping the NPF naming with with the friendly names such as wireless or ethernet. 
+Luckily there is pcap.FindAllDevs() function in GoPacket to find all the physical interfaces. It's the best option to leave the user decides what interface to capture by mapping the NPF naming with with the friendly names such as wireless or ethernet. 
 
 ```golang
 if *listNICsOption {
@@ -104,14 +105,14 @@ if *listNICsOption {
 }
 ```
 
-Output of above code will show the interfaces in numbers so the user can select the correct number, same approach is in tcpdump tool. 
+Output of above code will show the interfaces in numbers so the user can select the correct number, same approach is used by tcpdump tool. 
 
 ![NPF Naming](/imgs/NPF_names.png)
 
 
 **Packet Capture**
 
-The code to capture is a more complex than below one because of the feature needed such as verbose logging, size and packet tracking, error handling ..etc, but for a show case, it's as simple as below one. 
+The code to capture is a more complex than below one because of the feature needed such as verbose logging, size and packet tracking, error handling ...etc, but for a show case, it's as simple as below one. 
 
 ```golang
 handle, err = pcap.OpenLive(deviceName, snapshotLen, promiscuous, timeout)
@@ -155,8 +156,9 @@ if err != nil {
 
 ```
 
-Json marshal is used to serialize packet data and Metadata into bytes for the gRPC transfer. Golang channels passes data around the code. Using channels in the code is enough for Golang endless love. In the same code, network handling and packet manipulation can be achieved by modifying layers and protocol events. Since the tool is created for packet with payload (raw packets), no manipulation was done. 
+Json marshal is used to serialize packet data and Metadata into bytes for the gRPC transfer. Golang channels passes data between code snippets. **Using channels in the code is enough for Golang endless love**. 
 
+In the same code, network handling and packet manipulation can be achieved by modifying layers and protocol events which is not the topic of this post.
 
 **Sending packets over gRPC**
 
@@ -213,7 +215,7 @@ go func() {
 
 The agent can be converted into a systemd service or windows service for constant transmission, caution needed to not over load the network when capturing multiple servers and sending the traffic to one destination. BPF should be used to narrow down the scope of the capture.
 
-It's possible to run the tools with no filters to capture everything, BPF filters can be compiled and used with GoPacket to avoid capturing unnecessary traffic. I rely on Alexa top 1000 website rank + organization internal and business related domains in one huge BPF. 
+BPF filters can be compiled and used with GoPacket to avoid capturing unnecessary traffic. I rely on Alexa top 1000 website rank + organization internal and business related domains in one huge BPF. 
 
 ```golang 
 if *whitelisting || *captureFilter != "" {
@@ -235,7 +237,7 @@ if *whitelisting || *captureFilter != "" {
 
 **BPF construction**
 
-It may be needed to resolve domains to IP Addresses if supplied whitelist is not IP Addresses, The list is feteched from server during the initialization of the agent. 
+It may be needed to resolve domains to IP Addresses if the supplied whitelist is not in the form of IP Addresses, The list is fetched from server during the initialization of the agent. 
 
 ```golang
 func buildFilter() {
@@ -266,11 +268,11 @@ func buildFilter() {
 
 **Collector server implementation**
 
-Writing the received packets to disk will not be useful if not supported by a searching platform. The first thought was to use Security Onion and schedule a cron job that will tcpreplay the packets every N minutes. Fortunately I found an interesting option in Arkime (formerly Moloch) to monitor a folders for pcaps and automatically ingest them to Arkime.
+Writing the received packets to disk will not be useful if not supported by a searching platform. The first thought was to use Security Onion and schedule a cron job that will tcpreplay the packets every N minutes. Fortunately I found an interesting option in Arkime (formerly Moloch) to monitor a folders for pcaps and automatically ingest the packets copied to the folder.
 
 ![gRPC](/imgs/streaming_packets.png)  
 
-
+<br>
 **gRPC server**
 
 gRPC server listens on TCP Port 9000, file server part is used to start a server for public folder where it hosts couple of txt files that acts like settings api. Agents will read the files to know what BPF filters to apply from the public folder. 
@@ -303,6 +305,9 @@ if err := grpcserver.Serve(lis); err != nil {
 }
 ```
 
+Creating a systemd service to automatically start Moloch capture binary with options to monitor a specific folder for any incoming pcap
+
+![systemd](/imgs/systemd-unit.png) 
 
 The received packets will be written to disk using a special GoPacket writer. 
 
