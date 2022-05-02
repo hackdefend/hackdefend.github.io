@@ -57,7 +57,7 @@ plugins:
 author:
   name   : "Ali Alwashali"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "DFIR | Cyber Threat Intelligence"
+  bio    : "DFIR | CTI | TH"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -67,7 +67,7 @@ author:
       url: "https://twitter.com/ali_alwashali"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/alwashali"
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
     #   url: "https://instagram.com/"
