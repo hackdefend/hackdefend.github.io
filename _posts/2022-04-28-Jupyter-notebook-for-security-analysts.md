@@ -153,6 +153,7 @@ One sample output is the following graph. It's clear that almost all offenses we
 ![noisy_evidence](/imgs/noisy_evidence.png)
 
 
+Complete Jupyter Notebook for analyzing Qradar SIEM data can be found [Here](https://github.com/alwashali/Qradar-Offenses-Jupyter-Notebook/blob/main/QradarAPIOffense.ipynb). 
 
 ---
 
