@@ -1,5 +1,5 @@
 ---
-title: Using Jupyter Notebook to Analyze SOC Data
+title: Analyzing SOC Data Using Jupyter Notebook
 classes: wide
 categories:
   - Security Analytics
