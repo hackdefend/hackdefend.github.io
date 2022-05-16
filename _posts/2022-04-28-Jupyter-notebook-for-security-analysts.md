@@ -126,9 +126,9 @@ offenses[offenses['closing_reason'] == 'Escalated'].groupby(offenses['offense_ti
     
 
 
-### Most noisy evidence
+### Reducing noisy evidence
 
-Sometimes, it requires tuning only one IP to reduce most of the noise. Below code extract the most noisy evidence (IP, Domain, Endpoint) causing offenses to fire. 
+Sometimes, Offenses require tuning for only one or two evidences to reduce most of the noise. Below code extracts the most noisy evidence causing offenses to fire. 
 
 
 ```python
