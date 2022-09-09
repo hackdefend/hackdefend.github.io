@@ -74,7 +74,7 @@ Analyst might not select powershell obfuscation due to the fear that, obfuscatio
 
 ## Inductive Reasoning 
 
-When multiple alerts confidently fire at the same time, quickly analyst generalize the conclusion about all alerts from checking one or two only. The reason is due to the static nature of alert titles. Awareness about mistakes of generalization will help analyst to not skip or quickly jump to conclusions. From platform perspective, alert titles should be dynamically derived from the content of logs.
+When multiple alerts coincidentally fire at the same time, quickly analyst generalize the conclusion about all alerts from checking one or two only. The reason is due to the static nature of alert titles. Awareness about mistakes of generalization will help analyst to not skip or quickly jump to conclusions. From platform perspective, alert titles should be dynamically derived from the content of logs.
 
 ## Availability Bias
 
