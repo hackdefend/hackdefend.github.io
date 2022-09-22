@@ -9,7 +9,7 @@ tags:
   - SOC
 ---
 
-As a mentor in a SOC, I always receive questions about detection rule logic or about the best way to approach analysis. I sometimes ask analyst to come up with their analysis first before I try supporting them. It's always interesting to hear different conclusions and way of thinking. Some analysts have high analytic capabilities and some need to be aware about human thinking limitations and biases and how we can to some extent avoid them. 
+As a mentor in a SOC, I always receive questions from junior analysts about the best way to approach analysis. I sometimes ask analyst to come up with their analysis first before I try supporting them. It's always interesting to hear different conclusions and way of thinking. Some analysts have high analytic capabilities and some need to be aware about human thinking limitations and biases and how we can to some extent avoid them. 
 
 SOC jobs are analysis focused roles that need application of decision making skills that are impacted by how mature human cognitive abilities are. I will try in this blog post to list some of the analysis pitfalls I notice during my interaction with analysts in a SOC. 
 
