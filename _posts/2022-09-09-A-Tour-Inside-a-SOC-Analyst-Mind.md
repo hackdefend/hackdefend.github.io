@@ -54,6 +54,7 @@ Each phase has it's own analysis pitfalls, for example consider below alerts tha
 | Malicious file detected by AV| 
 | T1053 - Scheduled Task/Job installation | 
 
+Following is a simple graph showing the possible mistakes an analyst might do during alert analysis.
 <br>
 
 ![what happends in a SOC analyst mind](/imgs/analyst mind theater.png)
