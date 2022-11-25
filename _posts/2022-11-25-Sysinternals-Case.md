@@ -37,7 +37,7 @@ Following are Intersting strings inside sysinternals[1].exe
 
 Strings and code indicate the existence of other files, as well as installing a malicious service called VMwareIOHelperService. 
 
- ![c code of sysinternals[1].exe](/imgs/sysinternals[1].exe_code.png)
+ ![c code of sysinternals[1].exe](/imgs/sysinternals_code.png)
 
 Next step is to look for network communication to know from where those files were downloaded. Using a sandboxing solutions is quick win to study the malware behaviour as well as to get a copy of PCAP. 
 Fortunately the sample was available in Virustotal with the malware behaviour report. Virusttotal shows many maliciuos TTPs. Hosts file modification was interesting. Disk image hosts file was indeed modified. 
