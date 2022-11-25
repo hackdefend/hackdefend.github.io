@@ -2,7 +2,7 @@
 title: Sysinternals case writeup 
 classes: wide
 categories:
-  - Network Forensics
+  - Forensics
 tags:
   - Forensics
   - Malware Analysis
