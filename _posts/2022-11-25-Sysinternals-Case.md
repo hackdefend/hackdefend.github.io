@@ -14,8 +14,7 @@ This is a small writeup for the [sysinternals case](https://www.ashemery.com/dfi
 
 The case starts after donwloading a sysinternals tool that is suspected to be a malware since it didn't behave as expected and the user noticed a slowness in the system. To start the case analysis, file system and evidence of execution artifacts are the first two traces to start analyzing. MFT is a good candidate for file creation and amcache or prefetch for evidence of execution. 
 
-MFT showed that two files with the name sysinternals.exe were created, first file was clean and is likely a currpted since it doesn't contain MZ header. And second file was malicious and resulted in 32 hits on [VirusTotal](https://www.virustotal.com/gui/file/72e6d1728a546c2f3ee32c063ed09fa6ba8c46ac33b0dd2e354087c1ad26ef48/behavior
-). 
+MFT showed that two files with the name sysinternals.exe were created, first file was clean and is likely a currpted since it doesn't contain MZ header. And second file was malicious and resulted in 32 hits on [VirusTotal](https://www.virustotal.com/gui/file/72e6d1728a546c2f3ee32c063ed09fa6ba8c46ac33b0dd2e354087c1ad26ef48/behavior). 
 
 |   File Path | Hash  |
 | ------------- | ------------- |
@@ -54,6 +53,8 @@ From the strings of sysinternals[1].exe we can run the vmtoolsio.exe with comman
 Vmtoolsio.exe installs a service that deletes all prefetch file and keep deleting any created prefetch.   
 
  ![vmtooslio deleting prefetch files](/imgs/vmtoolsio.png)
+ 
+Prefetch files were deleted as a result of the service created out of vmtoolsio.exe, however we can know the first execution from MFT creation time of the .pf files when first executed. 
 
 
 
