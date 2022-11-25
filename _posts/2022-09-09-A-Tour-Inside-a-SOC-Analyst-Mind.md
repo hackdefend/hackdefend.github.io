@@ -14,7 +14,7 @@ As a mentor in a SOC, I always receive questions from junior analysts about the 
 SOC jobs are analysis focused roles that need application of decision making skills that are impacted by how mature human cognitive abilities are. I will try in this blog post to list some of the analysis pitfalls I notice during my interaction with analysts in a SOC. 
 
 
-Generally, a typical SOC will have a dashboard that contains a list of security alerts. The first 10 seconds after looking at the dashboard, a magical and complex though process happens in the analyst mind to select the right alert for instigation. Like a any human, the though process will likely have pitfalls. Generally, good analysts have repetitively better good decision making skills and analytic thinking capability than average people. They derive their moves based on rules of logic. Applying good analytic techniques is crucial for analysis because not all information will be available. Analysts have to go through layers of abstraction to build context and make decisions. 
+Generally, a typical SOC will have a dashboard that contains a list of security alerts. The first 10 seconds after looking at the dashboard, a magical and complex though process happens in the analyst mind to select the right alert for investigation. Like a any human, the though process will likely have pitfalls. Generally, good analysts have repetitively better good decision making skills and analytic thinking capability than average people. They derive their moves based on rules of logic. Applying good analytic techniques is crucial for analysis because not all information will be available. Analysts have to go through layers of abstraction to build context and make decisions. 
 
 <br>
 
