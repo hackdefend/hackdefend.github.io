@@ -50,9 +50,9 @@ Since the domain was locally hosted, it won't be possible to setup the same serv
 
 From the strings of sysinternals[1].exe we can run the vmtoolsio.exe with commandline -install to cause the service installation. Once
 
-Vmtoolsio.exe installs a service that deletes all prefetch file and keep deleting any created prefetch.   
+Vmtoolsio.exe installs a service that deletes all prefetch file and keep deleting any newly created prefetch files.   
 
- ![vmtooslio deleting prefetch files](/imgs/vmtoolsio.png)
+ ![vmtooslio deleting prefetch files](/imgs/vmtoolsio_file_delete.png)
  
 Prefetch files were deleted as a result of the service created out of vmtoolsio.exe, however we can know the first execution from MFT creation time of the .pf files when first executed. 
 
