@@ -40,7 +40,6 @@ Each phase has its own potential pitfalls, and the quality of the analysis can v
 
 Each of these alerts requires a different approach and decision-making process, and the analyst must be aware of the potential pitfalls and biases that may affect their analysis. Following is a list of alerts in a typical SOC dashboard, analysts would make a guess which alert is worth investigating and what to be ignored and this is where many mistakes are done. 
 
-<br>
 
 
 | Alerts      | 
