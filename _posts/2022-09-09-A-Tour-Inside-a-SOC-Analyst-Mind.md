@@ -26,7 +26,9 @@ Typically, a SOC will have a dashboard that contains a list of security alerts. 
 The process of selecting the right alert for investigation is a decision-making skill that is influenced by a combination of gut feeling and cybersecurity experience. Knowing the potential pitfalls that an analyst may unknowingly fall into can help to improve their thinking and analysis. To make it easier to understand how SOC analysts work, a typical alert analysis can be divided into three main phases:
 
 1- Alert selection 
+
 2- Analysis 
+
 3- Security writing
 
 Each phase has its own potential pitfalls, and the quality of the analysis can vary depending on the analyst's experience and metacognitive awareness. Some examples of alerts that may appear in a SOC detection platform are:
