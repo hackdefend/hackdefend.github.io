@@ -1,5 +1,5 @@
 ---
-title: A Tour Inside a SOC Analyst Mind
+title: A tour inside a SOC analyst mind
 layout: single
 toc_label: "Contents"
 toc: true
@@ -72,24 +72,17 @@ Alert selection is crucial and I always ask analysts, How they select the alerts
 
 ## Alert familiarity 
 
-Alerts should  selected based on risk, however analysts usually select what they think they know how to analyze. Most of the cases, alerts will be selected based on detection rules or data they are comfortable with. 
-
-To reduce this pitfall, rule on-boarding process should  include basic training for the newly deployed rules. In addition, the rule information section should have clear explanation and resources that help the analyst to study and understand everything about the rule. 
-
-Analyst might not select powershell obfuscation due to the fear that, obfuscation could be difficult to decode and analyze. They may go with AV alert because they are easy to understand and escalate. Analyzing patterns of how alerts are picked as a SOC metric may help to know knowledge gaps in the team. 
+Alerts should be selected based on risk, but analysts often choose alerts based on what they think they know how to analyze. In most cases, alerts are selected based on detection rules or data that the analyst is comfortable with. To reduce this pitfall, the rule on-boarding process should include training on newly deployed rules, and the rule information section should provide clear explanations and resources to help analysts understand the rules. Analysts may avoid selecting alerts for PowerShell obfuscation because they fear that it may be difficult to decode and analyze. Instead, they may choose AV alerts because they are easier to understand and escalate. Analyzing patterns in how alerts are selected can help identify knowledge gaps in the team.
 
 ## Inductive Reasoning 
 
-When multiple alerts coincidentally fire at the same time, quickly analyst generalize the conclusion about all alerts from checking one or two only. The reason is due to the static nature of alert titles. Awareness about mistakes of generalization will help analyst to not skip or quickly jump to conclusions. From platform perspective, alert titles should be dynamically derived from the content of logs.
+When multiple alerts coincidentally fire at the same time, analysts may quickly generalize their conclusion about all alerts by only checking one or two. This is due to the static nature of alert titles, which can lead to erroneous conclusions. By being aware of this mistake, analysts can avoid quickly jumping to conclusions and ignoring alerts. From a platform perspective, alert titles should be dynamically derived from the content of logs to help prevent this issue.
 
 ## Availability Bias
 
-Analysts use their previous knowledge about the infrastructure or detection rule to make decisions. For example, fixed scanning schedules cause many rules to fire —  Without going into the details of how SIEM should be tuned to avoid such alerts. — analysts may ignore a set of alerts or behavior assuming it's the scan because they are used to having these alerts.  
+Analysts often use their previous knowledge about the infrastructure or detection rule to make decisions. For example, fixed scanning schedules can cause many rules to fire. Without properly tuning the SIEM to avoid such alerts, analysts may ignore a set of alerts or behaviors, assuming that it is a scan because they are used to seeing these alerts. Improving the tuning of the SIEM can help prevent this issue.
 
-Another example is the regularl uncoordinated pentesting activity, if it's known that pentester is working on some network without proper communication, alerts could be loosly analyzed due to a previous knowledge of some sort of activity is going on in the network. 
-
-Applying this to availability bias, many log4j scanning alert may be skipped thinking that it's the scheduled scan. 
-
+Another example is the regularl uncoordinated pentesting activity, if it's known that pentester is working on some network without proper communication, alerts could be loosly analyzed due to a previous knowledge of some sort of activity is going on in the network. Applying this to availability bias to above alert list, many log4j scanning alert may be skipped thinking that it's the scheduled scan. 
 
 
 # Analysis 
@@ -98,9 +91,7 @@ The same though process during alert selection repeated again during the first 1
 
 ## Asking the right question 
 
-Analyst has to actively think about right question to be asked, knowing why/how the answer will help to ask the next question, and how all questions may lead to answering a hypothesis in mind. 
-
-Senior analyst will have more hypotheses than junior analysts. The more hypotheses are generated the more questions will be asked. Prioritizing the list of hypotheses and the related question is what is so called good analysis choices. 
+Analyst has to actively think about right question to be asked, knowing why/how the answer will help to ask the next question, and how all questions may lead to answering a hypothesis in mind. Senior analyst will have more hypotheses than junior analysts. The more hypotheses are generated the more questions will be asked. Prioritizing the list of hypotheses and the related question is what is so called good analysis choices. 
 
 Chris Sanders research [CREATIVE CHOICES: DEVELOPING A THEORY OF DIVERGENCE, CONVERGENCE, AND INTUITION IN SECURITY ANALYSTS](https://www.chrissanders.org/wp-content/uploads/2020/03/Creative-Choices-Developing-a-Theory-of-Divergence-Convergence-and-Intuition-in-Security-Analysts.pdf) tries to understand how SOC analyst generate hypotheses and ask the related investigative questions.
 
@@ -110,13 +101,9 @@ Chris Sanders research [CREATIVE CHOICES: DEVELOPING A THEORY OF DIVERGENCE, CON
 It's suffice to say the well known phrase in analysis [Correlation does not imply causation](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation). Each move and conclusion should be built on a strong foundation of evidence that are derived by applying rules of logic. Cause-and-effect relationships plays a big role in analysis, experience in IT and and the network being protected. 
 
 
-## Proving the impossible 
+## Trying to prove the impossible 
 
-A fundamental question to consider during any investigation, **do we have to prove or disprove a hypothesis?**. Knowing what to choose will save a lot of time, and in some cases proving is the mission impossible.   
-
-Security systems are made of layers of abstraction that should be taken advantage of to facilitate investigation. Breaking down the situation into smaller areas with relationships then Illuminating the relationships between the areas by asking the right question that will lead to the right answer to disprove the hypotheses or the relationship to the particular scenario.  
-
-In our dashboard, if the logs are not clear about why procdump64.exe is used for, an analyst will think that he has to prove that credential dumping happened in the system and somehow he has to find the evidence to relate it to the use of procdump64.exe. Which one is easier, finding evidence of credential dumping? or finding the evidence that answers why procdump64.exe was used for?
+A fundamental question to consider during any investigation is whether we need to prove or disprove a hypothesis. Knowing which option to choose can save a lot of time, and in some cases, proving a hypothesis may be impossible. Security systems are made up of layers of abstraction that can be leveraged to facilitate investigation. Breaking down the situation into smaller areas with relationships and illuminating the relationships between those areas by asking the right questions can help disprove hypotheses or establish a relationship to a particular scenario. For example, in our dashboard, if the logs are not clear about why procdump64.exe is used, an analyst may think that they need to prove that credential dumping occurred in the system and find evidence to support this. However, it may be easier to find evidence about why procdump64.exe was used instead.
  
 ## Anchoring and confirmation bias
 
@@ -125,4 +112,4 @@ During analysis, it's very hard to avoid the temptation to go in a new investiga
 
 # Security Writing
 
-Good analyst should have clear thinking that is reflected on writing. The Ability to accurately write about the events timeline crucial. Analysts sometimes make the mistake to write content to prove their sophistication and deep analysis where it should have been an easy to read and actionable instructions only. in addition recommendations must be reasonably selected. 
+Good analyst should have clear thinking that is reflected on writing. The Ability to accurately write about the events timeline crucial. Analysts sometimes make the mistake to write content to prove their sophistication and deep analysis where it should have been an easy to write an actionable instructions only. in addition recommendations must be reasonably selected. 
