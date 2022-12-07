@@ -9,12 +9,11 @@ tags:
   - SOC
 ---
 
-As a mentor in a SOC, I always receive questions from junior analysts about the best way to approach analysis. I sometimes ask analyst to come up with their analysis first before I try supporting them. It's always interesting to hear different conclusions and way of thinking. Some analysts have high analytic capabilities and some need to be aware about human thinking limitations and biases and how we can to some extent avoid them. 
+As a mentor in a SOC, I often receive questions from junior analysts about the best way to approach analysis. To help them develop their skills, I sometimes ask them to come up with their own analysis before I offer my support. It's always interesting to hear their different conclusions and ways of thinking. Some analysts have strong analytical abilities, while others need to be aware of human thinking limitations and biases and how to avoid them to some extent.
 
-SOC jobs are analysis focused roles that need application of decision making skills that are impacted by how mature human cognitive abilities are. I will try in this blog post to list some of the analysis pitfalls I notice during my interaction with analysts in a SOC. 
+SOC jobs are focused on analysis and require the application of decision-making skills that are impacted by the maturity of an individual's cognitive abilities. In this blog post, I will attempt to list some of the analysis pitfalls that I have observed during my interactions with analysts in a SOC.
 
-
-Generally, a typical SOC will have a dashboard that contains a list of security alerts. The first 10 seconds after looking at the dashboard, a magical and complex though process happens in the analyst mind to select the right alert for investigation. Like a any human, the though process will likely have pitfalls. Generally, good analysts have repetitively better good decision making skills and analytic thinking capability than average people. They derive their moves based on rules of logic. Applying good analytic techniques is crucial for analysis because not all information will be available. Analysts have to go through layers of abstraction to build context and make decisions. 
+Typically, a SOC will have a dashboard that contains a list of security alerts. In the first 10 seconds after looking at the dashboard, a complex thought process occurs in the analyst's mind to select the right alert for investigation. Like any human, this thought process is likely to have pitfalls. In general, good analysts have better decision-making skills and analytical thinking capabilities than average people. They base their moves on the rules of logic. Applying good analytical techniques is crucial for analysis because not all information will be available. Analysts have to go through layers of abstraction to build context and make decisions.
 
 <br>
 
@@ -24,15 +23,21 @@ Generally, a typical SOC will have a dashboard that contains a list of security 
 
 ---
 
-Selecting the right alert is a decision making skill mixed with gut feeling and cyber security experience. Knowing where are the pitfalls an analyst might unknowingly do will help to mature the thinking. For easier analysis of how SOC analyst work, a typical alert analysis will be divided into three main phases
+The process of selecting the right alert for investigation is a decision-making skill that is influenced by a combination of gut feeling and cybersecurity experience. Knowing the potential pitfalls that an analyst may unknowingly fall into can help to improve their thinking and analysis. To make it easier to understand how SOC analysts work, a typical alert analysis can be divided into three main phases:
 
 1- Alert selection 
-
 2- Analysis 
-
 3- Security writing
 
-Each phase has it's own analysis pitfalls, for example consider below alerts that may appear in a SOC detection platform. Alert selection, analysis and writing differ in quality depending on the analyst experience and metacongitive awareness.  
+Each phase has its own potential pitfalls, and the quality of the analysis can vary depending on the analyst's experience and metacognitive awareness. Some examples of alerts that may appear in a SOC detection platform are:
+
+- A sudden spike in network traffic from a specific IP address
+- An unusual number of login attempts from a particular user
+- A suspicious file detected on a client's endpoint
+
+
+Each of these alerts requires a different approach and decision-making process, and the analyst must be aware of the potential pitfalls and biases that may affect their analysis.
+
 <br>
 
 
